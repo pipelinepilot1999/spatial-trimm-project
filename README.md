@@ -29,20 +29,10 @@ tissue, ship with cell-type annotations, and work with `CellChatDB.mouse` out of
 - **Enrichment shared-gene artifacts** — enriched ≠ mechanistic.
 - **Single section, no biological replicate** — conclusions are exploratory.
 
-## Status
-- [x] Environment + TrimNN CPU-only install (conda `TrimNNEnv`, python 3.9)
-- [x] Proof-of-life on TrimNN `demo_data` (Functions 1 & 2 run end-to-end on CPU)
-- [x] Acquire + spatially crop a mouse-brain MERFISH section (ABC Atlas `MERFISH-C57BL6J-638850`, section .35)
-- [x] Motif discovery on real data — size-3 and size-4 (greedy)
-- [x] Statistical validation — permutation null + Fisher's exact + Cramér's V
-- [x] Differential expression — naive vs confound-controlled vs **pseudobulk**
-- [x] GO / Reactome enrichment (panel-gene background)
-- [x] Cell-cell communication — squidpy `ligrec` (honest null: panel lacks complete LR pairs)
-- [~] CellChat proper — script + input ready, run deferred (external-install guardrail; needs approval)
 
 ## Results (section .35 cortical crop, 3,968 cells, 8 classes)
 
-> 📊 **Figure walkthrough with plots: [`RESULTS.md`](RESULTS.md)**
+> **Figure walkthrough with plots: [`RESULTS.md`](RESULTS.md)**
 
 **Headline (motif discovery):** TrimNN's top "overrepresented" motif is an *abundance artifact*
 (`Astro+Glut+Glut`). Correcting for abundance with a permutation null recovers real cortical
