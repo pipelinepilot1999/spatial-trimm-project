@@ -30,9 +30,31 @@ tissue, ship with cell-type annotations, and work with `CellChatDB.mouse` out of
 ## Status
 - [x] Environment + TrimNN CPU-only install (conda `TrimNNEnv`, python 3.9)
 - [x] Proof-of-life on TrimNN `demo_data` (Functions 1 & 2 run end-to-end on CPU)
-- [ ] Acquire + subsample mouse-brain MERFISH section
-- [ ] Run motif discovery on real data (sizes 3–4)
-- [ ] Downstream: DE (+pseudobulk) · CellChat · GO/Reactome · Fisher/Cramér's V
+- [x] Acquire + spatially crop a mouse-brain MERFISH section (ABC Atlas `MERFISH-C57BL6J-638850`, section .35)
+- [x] Motif discovery on real data — size-3 done; size-4 (greedy) running
+- [x] Statistical validation — permutation null + Fisher's exact + Cramér's V
+- [x] Differential expression — naive vs confound-controlled vs **pseudobulk**
+- [x] GO / Reactome enrichment (panel-gene background)
+- [~] CellChat — script + input ready, run deferred (external-install guardrail)
+
+## Results (section .35 cortical crop, 3,968 cells, 8 classes)
+
+**Headline (motif discovery):** TrimNN's top "overrepresented" motif is an *abundance artifact*
+(`Astro+Glut+Glut`). Correcting for abundance with a permutation null recovers real cortical
+biology — **layer-6b neuron clustering (z=133)**, glial clustering, and neuron↔glia spatial
+exclusion (`IT-ET~Astro` odds 0.09). Global cell-type spatial organization: Cramér's V = 0.28.
+
+**Methodological headline (DE):** for the OPC-Oligo motif, DEG counts collapse as each bias is
+removed —
+
+| Analysis | DEGs (padj<0.05) | fix applied |
+|---|---|---|
+| Naive (motif vs rest) | **222** | — (confounded + pseudoreplicated) |
+| Confound-controlled | **48** | cell-type confound removed (−78%) |
+| **Pseudobulk** | **17** | pseudoreplication removed (−65% more) |
+
+That 222 → 17 collapse is the project's argument: naive spatial DE is severely inflated.
+Full accounting of assumptions and residual caveats in [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md).
 
 ## Layout
 ```
