@@ -35,12 +35,16 @@ at FDR<0.05.
 **Addressed:** we lead with EFFECT SIZE (z-score, Fisher odds, Cramér's V), not p-values.
 **Residual caveat:** effect-size thresholds are judgement calls, not bright lines.
 
-## 5. CellChat = prediction, not proof; panel-bound (DEFERRED)
-CellChat infers signaling from ligand/receptor CO-EXPRESSION — a hypothesis, not evidence of
-actual signaling. With a ~550-gene panel, only LR pairs whose both partners are on the panel can
-be found, truncating the communication space.
-**Status:** script ready (`08_cellchat.R`) but NOT run — CellChat installs only from GitHub and the
-environment guardrail blocked the unauthorized external source. Runs on explicit approval.
+## 5. Cell-cell communication = prediction, not proof; panel-bound (RUN, null result)
+LR communication is inferred from CO-EXPRESSION — a hypothesis, not evidence of actual signaling.
+With a ~550-gene panel, only LR pairs whose both partners are on the panel can be found.
+**Run:** squidpy `ligrec` (CellPhoneDB-style permutation test, `08_communication_squidpy.py`) as a
+pip-installable substitute for CellChat. **Result: 0 of 65 candidate LR pairs were testable** —
+MERFISH brain panels are cell-type marker sets, not signaling-pair sets, so almost no complete
+ligand-receptor pair has both partners measured. An honest null that quantifies the panel limit.
+**Caveats:** mouse→human ortholog mapping via the uppercase convention (approximate, under-counts);
+CellChat (`08_cellchat.R`, preferred, `CellChatDB.mouse`) remains deferred — installs only from
+GitHub, blocked by the environment guardrail; runs on explicit approval.
 
 ## 6. Enrichment: shared-gene artifacts + panel background (ADDRESSED, underpowered)
 Genome-wide GO/Reactome background would call pathways enriched merely because the MERFISH panel
