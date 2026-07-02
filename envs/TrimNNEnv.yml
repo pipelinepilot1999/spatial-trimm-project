@@ -1,0 +1,16 @@
+# Motif discovery (TrimNN) — CPU-only. Create with:
+#   conda env create -f envs/TrimNNEnv.yml
+# Then install DGL + TrimNN's own requirements (pip, must follow conda step):
+#   conda activate TrimNNEnv
+#   pip install dgl==1.1.2 -f https://data.dgl.ai/wheels/repo.html
+#   pip install -r TrimNN/requirements.txt
+# Always: export DGLBACKEND=pytorch
+name: TrimNNEnv
+channels: [pytorch, conda-forge]
+dependencies:
+  - python=3.9
+  - pytorch==1.13.1
+  - torchvision==0.14.1
+  - torchaudio==0.13.1
+  - cpuonly
+  - mkl==2024.0        # avoids 'undefined symbol: iJIT_NotifyEvent' at import

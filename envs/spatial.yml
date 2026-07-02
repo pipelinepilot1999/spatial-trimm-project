@@ -1,0 +1,16 @@
+# Data wrangling + spatial stats + ligand-receptor (Python). Create with:
+#   conda env create -f envs/spatial.yml
+name: spatial
+channels: [conda-forge]
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - pandas
+    - numpy
+    - scipy
+    - anndata
+    - scanpy
+    - squidpy
+    - omnipath
+    - "setuptools<81"   # restores pkg_resources needed by squidpy's import chain

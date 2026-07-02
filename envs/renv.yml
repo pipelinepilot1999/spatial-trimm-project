@@ -1,0 +1,18 @@
+# DE (DESeq2) + enrichment (clusterProfiler / ReactomePA) in R. Create with:
+#   conda env create -f envs/renv.yml
+# Note: CellChat (08_cellchat.R) is NOT included — it installs only from GitHub
+#   (remotes::install_github("jinworks/CellChat")) and must be added manually with approval.
+name: renv
+channels: [conda-forge, bioconda]
+dependencies:
+  - r-base
+  - bioconductor-deseq2
+  - bioconductor-clusterprofiler
+  - bioconductor-reactomepa
+  - bioconductor-org.mm.eg.db
+  - r-biocmanager
+  - r-remotes
+  - r-matrix
+  - r-data.table
+  - r-ggplot2
+  - "libxml2<2.14"   # provides libxml2.so.2 that r-igraph (clusterProfiler dep) needs

@@ -67,16 +67,48 @@ Full accounting of assumptions and residual caveats in [`docs/LIMITATIONS.md`](d
 ## Layout
 ```
 TrimNN/     upstream tool, pinned as a git submodule (not my code)
-scripts/    my pipeline code
-data/       datasets (raw data gitignored)
-results/    my outputs, including demo proof-of-life
-docs/       notes, method rationale, limitation write-ups
+envs/       conda environment files (3 envs)
+scripts/    my pipeline code (numbered 00–09, run in order)
+data/       raw/ (gitignored, fetched by 00) · processed/ (committed inputs)
+results/    my outputs (motifs, stats, DE, enrichment, communication, figures)
+docs/       method rationale + limitation write-ups
 ```
 
-## Reproducing the environment
+## Reproduce it
+
+**1. Clone with the submodule**
 ```
-conda create -n TrimNNEnv python=3.9 -y && conda activate TrimNNEnv
-conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 cpuonly -c pytorch -y
-pip install dgl==1.1.2 -f https://data.dgl.ai/wheels/repo.html
-cd TrimNN && pip install -r requirements.txt
+git clone --recurse-submodules <repo-url> && cd spatial-trimm-project
 ```
+
+**2. Build the three environments**
+```
+conda env create -f envs/TrimNNEnv.yml    # + DGL/requirements, see file header
+conda env create -f envs/spatial.yml
+conda env create -f envs/renv.yml
+```
+
+**3. Fetch the raw data** (gitignored; ~1.2 GB from the public ABC Atlas S3 bucket)
+```
+bash scripts/00_download_data.sh
+```
+
+**4. Run the pipeline** (each stage saves an output; `export DGLBACKEND=pytorch` for TrimNN)
+
+| Stage | Command | Env |
+|---|---|---|
+| Cortical crop → TrimNN input | `python scripts/01_make_cortical_crop.py` | spatial |
+| Build gml graph | `python TrimNN/csv2gml.py -target … -out …` (no `-prune`!) | TrimNNEnv |
+| Motif discovery (size 3 / 4) | `python TrimNN/TrimNN.py -function specific_size … / all_size …` | TrimNNEnv |
+| Abundance-vs-enrichment (exploratory) | `python scripts/02_motif_enrichment_explore.py` | spatial |
+| Statistical validation (permutation, Fisher, Cramér's V) | `python scripts/03_motif_statistics.py` | spatial |
+| DE input | `python scripts/04_build_de_input.py` | spatial |
+| DE group prep | `python scripts/05_prep_de_groups.py` | spatial |
+| DE + pseudobulk | `Rscript scripts/06_de_deseq2.R` | renv |
+| GO / Reactome | `Rscript scripts/07_enrichment.R` | renv |
+| Communication (squidpy) | `python scripts/08_communication_squidpy.py` | spatial |
+| CellChat (deferred; needs GitHub install) | `Rscript scripts/08_cellchat.R` | renv + CellChat |
+| Figures | `python scripts/09_figures.py` | spatial |
+
+## License
+MIT ([`LICENSE`](LICENSE)) for the pipeline code. TrimNN is third-party under its own MIT license.
