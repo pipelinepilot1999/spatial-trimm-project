@@ -5,6 +5,8 @@ recurrent **spatial cell-type motifs** (Cellular Community motifs) in spatial tr
 then interrogating whether those motifs are **molecularly, functionally, communicatively, and
 statistically real** — built from scratch on a new dataset as a defensible, honest portfolio.
 
+**Author:** Sai Sathvik Appagana (MS Bioinformatics, Indiana University Indianapolis) · GitHub [@pipelinepilot1999](https://github.com/pipelinepilot1999)
+
 ## The question this asks
 A cell's behavior depends not only on its own expression but on *which cell types surround it*.
 scRNA-seq dissociates tissue and loses that spatial context; spatial transcriptomics restores it.
@@ -109,6 +111,15 @@ bash scripts/00_download_data.sh
 | Communication (squidpy) | `python scripts/08_communication_squidpy.py` | spatial |
 | CellChat (deferred; needs GitHub install) | `Rscript scripts/08_cellchat.R` | renv + CellChat |
 | Figures | `python scripts/09_figures.py` | spatial |
+
+## Citations & acknowledgments
+- **TrimNN** — Yu et al., *Characterizing cellular community motifs …*, **Nature Communications** (2025).
+  [Paper](https://www.nature.com/articles/s41467-025-63141-7) · [Code](https://github.com/yuyang-0825/TrimNN)
+- **Dataset** — Zhang et al., *A high-resolution transcriptomic and spatial atlas of cell types in the
+  whole mouse brain*, **Nature** (2023). [Paper](https://www.nature.com/articles/s41586-023-06812-z) ·
+  accessed via the [Allen Brain Cell Atlas](https://alleninstitute.github.io/abc_atlas_access/)
+  (`MERFISH-C57BL6J-638850`).
+- **Downstream tools** — DESeq2, clusterProfiler, ReactomePA, squidpy, scanpy/anndata.
 
 ## License
 MIT ([`LICENSE`](LICENSE)) for the pipeline code. TrimNN is third-party under its own MIT license.
