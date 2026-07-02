@@ -1,0 +1,23 @@
+# --- Data: raw/large spatial files stay local, never committed ---
+data/raw/
+*.h5ad
+*.h5
+*.loom
+*.mtx
+*.parquet
+
+# --- Conda / Python ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+.env
+
+# --- Large intermediate motif outputs (keep small summary CSVs, ignore bulky gml dumps) ---
+results/**/*.gml
+!results/**/Overrepresented_*.gml
+
+# --- OS / editor ---
+.DS_Store
+*.swp
+.claude/

@@ -1,0 +1,3 @@
+[submodule "TrimNN"]
+	path = TrimNN
+	url = https://github.com/yuyang-0825/TrimNN.git
