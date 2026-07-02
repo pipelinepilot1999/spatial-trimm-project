@@ -40,6 +40,8 @@ tissue, ship with cell-type annotations, and work with `CellChatDB.mouse` out of
 
 ## Results (section .35 cortical crop, 3,968 cells, 8 classes)
 
+> 📊 **Figure walkthrough with plots: [`RESULTS.md`](RESULTS.md)**
+
 **Headline (motif discovery):** TrimNN's top "overrepresented" motif is an *abundance artifact*
 (`Astro+Glut+Glut`). Correcting for abundance with a permutation null recovers real cortical
 biology — **layer-6b neuron clustering (z=133)**, glial clustering, and neuron↔glia spatial
