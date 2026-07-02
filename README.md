@@ -31,11 +31,12 @@ tissue, ship with cell-type annotations, and work with `CellChatDB.mouse` out of
 - [x] Environment + TrimNN CPU-only install (conda `TrimNNEnv`, python 3.9)
 - [x] Proof-of-life on TrimNN `demo_data` (Functions 1 & 2 run end-to-end on CPU)
 - [x] Acquire + spatially crop a mouse-brain MERFISH section (ABC Atlas `MERFISH-C57BL6J-638850`, section .35)
-- [x] Motif discovery on real data — size-3 done; size-4 (greedy) running
+- [x] Motif discovery on real data — size-3 and size-4 (greedy)
 - [x] Statistical validation — permutation null + Fisher's exact + Cramér's V
 - [x] Differential expression — naive vs confound-controlled vs **pseudobulk**
 - [x] GO / Reactome enrichment (panel-gene background)
-- [~] CellChat — script + input ready, run deferred (external-install guardrail)
+- [x] Cell-cell communication — squidpy `ligrec` (honest null: panel lacks complete LR pairs)
+- [~] CellChat proper — script + input ready, run deferred (external-install guardrail; needs approval)
 
 ## Results (section .35 cortical crop, 3,968 cells, 8 classes)
 
@@ -54,6 +55,11 @@ removed —
 | **Pseudobulk** | **17** | pseudoreplication removed (−65% more) |
 
 That 222 → 17 collapse is the project's argument: naive spatial DE is severely inflated.
+
+**Cross-validation:** TrimNN's greedy size-4 search independently grew from the `Immune³`
+(microglia) motif — the same motif our from-scratch permutation null flags as most over-represented
+by ratio. Two independent methods agreeing on the biologically interesting pattern.
+
 Full accounting of assumptions and residual caveats in [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md).
 
 ## Layout
