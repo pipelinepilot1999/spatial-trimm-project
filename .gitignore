@@ -21,3 +21,6 @@ results/**/*.gml
 .DS_Store
 *.swp
 .claude/
+
+# install logs
+results/*install*.log
