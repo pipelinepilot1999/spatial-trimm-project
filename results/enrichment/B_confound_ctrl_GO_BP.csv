@@ -1,0 +1,15 @@
+"","ID","Description","GeneRatio","BgRatio","pvalue","p.adjust","qvalue","geneID","Count"
+"GO:0044281","GO:0044281","small molecule metabolic process","11/48","34/489",0.000135509894474776,0.0841762760238714,0.0756175893516325,"Pde1a/Ptk2b/Cnr1/Nr4a3/Adcy2/Gda/Agt/Nos1/Ddc/Slc1a3/Kit",11
+"GO:0016049","GO:0016049","cell growth","11/48","36/489",0.000244452759864676,0.0841762760238714,0.0756175893516325,"Myo5b/Ptk2b/Rgs4/Nrn1/Agt/Serpine2/Nrp1/Syt17/Nfix/Slit3/Ccn3",11
+"GO:1901565","GO:1901565","organonitrogen compound catabolic process","8/48","22/489",0.000534834681866778,0.0841762760238714,0.0756175893516325,"Gfap/Pde1a/Ptk2b/Gda/Serpine2/Nos1/Epha4/Trhde",8
+"GO:0050804","GO:0050804","modulation of chemical synaptic transmission","14/48","59/489",0.000597702853610239,0.0841762760238714,0.0756175893516325,"Sv2b/Gfap/Myo5b/Ptk2b/Cnr1/Rgs4/Shisa6/Nrn1/Agt/Serpine2/Nos1/Epha4/Slc1a3/Kit",14
+"GO:0099177","GO:0099177","regulation of trans-synaptic signaling","14/48","59/489",0.000597702853610239,0.0841762760238714,0.0756175893516325,"Sv2b/Gfap/Myo5b/Ptk2b/Cnr1/Rgs4/Shisa6/Nrn1/Agt/Serpine2/Nos1/Epha4/Slc1a3/Kit",14
+"GO:0001558","GO:0001558","regulation of cell growth","9/48","28/489",0.000659849702018523,0.0841762760238714,0.0756175893516325,"Myo5b/Ptk2b/Rgs4/Agt/Serpine2/Nrp1/Syt17/Slit3/Ccn3",9
+"GO:0071902","GO:0071902","positive regulation of protein serine/threonine kinase activity","6/48","13/489",0.000664891280235726,0.0841762760238714,0.0756175893516325,"Rasgrp1/Ptk2b/Ccnd2/Agt/Epha4/Kit",6
+"GO:0006082","GO:0006082","organic acid metabolic process","7/48","18/489",0.000785959626740163,0.0841762760238714,0.0756175893516325,"Cnr1/Nr4a3/Agt/Nos1/Ddc/Slc1a3/Kit",7
+"GO:0019752","GO:0019752","carboxylic acid metabolic process","7/48","18/489",0.000785959626740163,0.0841762760238714,0.0756175893516325,"Cnr1/Nr4a3/Agt/Nos1/Ddc/Slc1a3/Kit",7
+"GO:0043436","GO:0043436","oxoacid metabolic process","7/48","18/489",0.000785959626740163,0.0841762760238714,0.0756175893516325,"Cnr1/Nr4a3/Agt/Nos1/Ddc/Slc1a3/Kit",7
+"GO:0048167","GO:0048167","regulation of synaptic plasticity","8/48","24/489",0.00105318993632138,0.0880809954905062,0.079125293506632,"Gfap/Ptk2b/Shisa6/Agt/Serpine2/Nos1/Epha4/Kit",8
+"GO:0048588","GO:0048588","developmental cell growth","8/48","24/489",0.00105318993632138,0.0880809954905062,0.079125293506632,"Myo5b/Rgs4/Nrn1/Agt/Nrp1/Syt17/Nfix/Slit3",8
+"GO:0043603","GO:0043603","amide metabolic process","6/48","14/489",0.00107683291939748,0.0880809954905062,0.079125293506632,"Ptk2b/Gda/St6galnac5/Epha4/Trhde/Spon1",6
+"GO:0043524","GO:0043524","negative regulation of neuron apoptotic process","7/48","19/489",0.0011513855619674,0.0880809954905062,0.079125293506632,"Ptk2b/Nr4a3/Agt/Nos1/Nrp1/Nfix/Nr4a2",7
