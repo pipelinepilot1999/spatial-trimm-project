@@ -1,0 +1,4 @@
+# GitHub Linguist hints
+*.ipynb linguist-documentation
+data/** linguist-generated
+results/** linguist-generated
